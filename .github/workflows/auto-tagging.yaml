@@ -1,0 +1,35 @@
+# This workflow will automatically tag the main branch on PR closure with the name from the branch name
+
+name: Tag on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag
+        id: get-tag
+        run: |
+          # GITHUB_HEAD_REF is the name of the branch that merged
+          TAG="${GITHUB_HEAD_REF#*/}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create tag
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          TAG=${{ steps.get-tag.outputs.tag }}
+          .github/scripts/create-tag.sh "$TAG"
