@@ -3,10 +3,34 @@ variable "bucket_name" {
   description = "The name of the bucket to create."
 }
 
+variable "bucket_policy" {
+  type        = string
+  description = "A JSON-encoded IAM policy document for the bucket resource policy."
+  default     = null
+}
+
+variable "versioned" {
+  type        = bool
+  description = "Whether the S3 bucket has versioning enabled or not."
+  default     = true
+}
+
 variable "files_to_upload" {
   type        = map(string)
   description = "Map of S3 object keys (keys) from the corresponding local files (values) to upload."
   default     = {}
+}
+
+variable "governance_days" {
+  type        = number
+  description = "The number of days to retain objects under object lock in governance mode."
+  default     = null
+}
+
+variable "compliance_days" {
+  type        = number
+  description = "The number of days to retain objects under object lock in compliance mode."
+  default     = null
 }
 
 variable "notification_config" {
