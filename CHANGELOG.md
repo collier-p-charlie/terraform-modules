@@ -12,6 +12,12 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.2.0]() 2026-01-15
+
+### Amended
+- Updates to the **AWS S3** module for governance / compliance etc.
+
+
 ## [1.1.0]() 2026-01-15
 
 ### Added
