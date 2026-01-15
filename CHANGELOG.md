@@ -12,6 +12,12 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.3.0]() 2026-01-15
+
+### Added
+- Adding a **VPC** networking module.
+
+
 ## [1.2.0]() 2026-01-15
 
 ### Amended
