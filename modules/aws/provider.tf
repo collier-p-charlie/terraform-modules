@@ -12,7 +12,7 @@ terraform {
 provider "aws" {
   region = var.region
 
-  assume_role {  # role to assume for cross-account permissions
+  assume_role { # role to assume for cross-account permissions
     role_arn     = var.command_role_arn
     session_name = "DiggerDeploy"
   }
