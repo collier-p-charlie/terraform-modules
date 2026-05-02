@@ -1,0 +1,34 @@
+# This workflow will check if the tag from the branch already exists or not (and will fail if so)
+
+name: Check Tag on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  check-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get tag
+        id: get-tag
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          TAG="${BRANCH_NAME#*/}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Check tag
+        run: |
+          TAG=${{ steps.get-tag.outputs.tag }}
+          .github/scripts/check-tag.sh "$TAG"
