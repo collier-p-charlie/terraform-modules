@@ -127,7 +127,9 @@ To run `pre-commit` we execute
 
 ```bash
 git add <path-to-module>
-ROOT=$(pwd) && cd <path-to-module> && terraform init && cd $ROOT  # to terraform init correctly
+cd <path-to-module>  # to terraform init correctly
+terraform init
+cd <project-root>
 pre-commit run --files <path-to-module>/*
 ```
 
