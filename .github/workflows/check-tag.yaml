@@ -21,14 +21,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get tag
-        id: get-tag
-        run: |
-          BRANCH_NAME="${{ github.head_ref }}"
-          TAG="${BRANCH_NAME#*/}"
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-
       - name: Check tag
         run: |
-          TAG=${{ steps.get-tag.outputs.tag }}
-          .github/scripts/check-tag.sh "$TAG"
+          BRANCH_NAME="${{ github.head_ref }}"
+          MODULE_TAG="${BRANCH_NAME#*/}"
+          REPO_TAG=$(grep ^version pyproject.toml | sed -r 's/^version = "(.*)"(.*)/\1/g')
+          .github/scripts/check-tag.sh "$MODULE_TAG" "$REPO_TAG"
