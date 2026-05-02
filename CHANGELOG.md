@@ -12,6 +12,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.1.0]() 2026-05-02
+
+### Added
+- AWS S3 module (`modules/aws/s3`) for creating an S3 bucket with optional versioning, force-destroy support, and tag propagation
+
 ## [1.0.0]()
 
 - Start of changelog.

@@ -44,9 +44,9 @@ The following are files at the root of the repository.
 
 ## Running and Setup
 
-Ensure `terraform`, `terraform-docs` and `uv` are installed by running 
+Ensure `terraform`, `terraform-docs` and `uv` are installed by running
 
-```bash 
+```bash
 terraform -v
 terraform-docs -v
 uv --version
