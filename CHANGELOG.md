@@ -12,7 +12,7 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
-## [1.1.1](https://github.com/collier-p-charlie/terraform-modules/compare/aws-s3.v1.0.0...aws-s3.v1.0.1) 2026-05-02
+## [1.1.1](https://github.com/collier-p-charlie/terraform-modules/compare/1.1.0...1.1.1) 2026-05-02
 
 ### Fixed
 - AWS S3 module: replaced `versioning_enabled` (bool) with `versioning_status` (string enum: `Enabled`, `Suspended`, `Disabled`); `Disabled` skips the versioning resource entirely, preventing invalid `Suspended` state on bucket creation; default changed to `Enabled`
