@@ -127,9 +127,7 @@ To run `pre-commit` we execute
 
 ```bash
 git add <path-to-module>
-cd <path-to-module>  # to terraform init correctly
-terraform init
-cd <project-root>
+terraform -chdir=<path-to-module> init  # to terraform init correctly
 pre-commit run --files <path-to-module>/*
 ```
 
@@ -149,7 +147,7 @@ The `CHANGELOG.md` should be updated to describe the changes.
 In this case, a description of the module being created and its purpose.
 
 ```markdown
-## [<version>]() YYYY-mm-dd
+## <version> YYYY-mm-dd
 
 ### Added
 - <DESCRIPTION HERE>

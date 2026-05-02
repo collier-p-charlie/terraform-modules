@@ -54,9 +54,7 @@ To run `pre-commit` we execute
 
 ```bash
 git add <path-to-module>
-cd <path-to-module>  # to terraform init correctly
-terraform init
-cd <project-root>
+terraform -chdir=<path-to-module> init  # to terraform init correctly
 pre-commit run --files <path-to-module>/*
 ```
 
@@ -101,6 +99,7 @@ git show <previous-module-tag>:pyproject.toml | grep -E ^version
 ```
 
 This will output `version = "<tag1>"` with the tag we want.
+We only put the link on _updates_, as there is no `git diff` to show.
 
 ### 5. Pushing Code
 
