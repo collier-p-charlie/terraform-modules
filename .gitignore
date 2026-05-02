@@ -62,4 +62,5 @@ venv/
 #############
 
 modules/**/.terraform/
+modules/**/.terraform.lock.hcl
 modules/**/builds/

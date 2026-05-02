@@ -73,7 +73,7 @@ In this case, a description of the module being created and its purpose.
 ```markdown
 ## [<version>](<git-diff-link>) YYYY-mm-dd
 
-### Changed
+### Changed / Fixed
 - <DESCRIPTION HERE>
 ```
 
@@ -89,7 +89,14 @@ https://<repository-domain>/compare/<tag1>...<tag2>
 
 This shows the difference between commits from `tag1` and `tag2`.
 The repository domain can be found in `pyproject.toml` under `[project.urls]`.
-We should use the _module tag_ here and not the repository root version.
+We know `tag2` as this is the new repository version, but `tag1` is the repository version relating to the `aws-s3.v1.0.0` changes, in this example.
+To find the repository tag we can use:
+
+```bash 
+git show <previous-module-tag>:pyproject.toml | grep -E ^version
+```
+
+This will output `version = "<tag1>"` with the tag we want.
 
 ### 5. Pushing Code
 
