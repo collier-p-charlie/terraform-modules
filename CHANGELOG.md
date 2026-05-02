@@ -12,6 +12,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.2.1]() 2026-05-02
+
+### Fixed
+- Upgraded `actions/checkout` from `v4` to `v6` across all GitHub Actions workflows
+
 ## [1.2.0]() 2026-05-02
 
 ### Added

@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -25,12 +25,12 @@ jobs:
           echo "Git config for bot"
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          
+
           echo "Get module tag; GITHUB_HEAD_REF is the name of the branch that merged"
           MODULE_TAG="${GITHUB_HEAD_REF#*/}"
-          
+
           echo "Get repository tag"
           REPO_TAG=$(grep ^version pyproject.toml | sed -r 's/^version = "(.*)"(.*)/\1/g')
-          
+
           echo "Creating tags"
           .github/scripts/create-tag.sh "$MODULE_TAG" "$REPO_TAG"
