@@ -12,6 +12,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.3.0](https://github.com/collier-p-charlie/terraform-modules/compare/1.1.1...1.3.0) 2026-05-02
+
+### Changed
+- AWS S3 module: added optional `policy` variable (string) to attach a resource-based bucket policy via `aws_s3_bucket_policy`; policy encoding is handled in the calling module
+
 ## [1.2.1]() 2026-05-02
 
 ### Fixed

@@ -27,6 +27,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_s3_bucket.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_versioning.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
 
 ## Inputs
@@ -35,6 +36,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The name of the S3 bucket | `string` | n/a | yes |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | Whether to allow the bucket to be destroyed even if it contains objects | `bool` | `false` | no |
+| <a name="input_policy"></a> [policy](#input\_policy) | JSON-encoded resource policy to attach to the bucket. Policy encoding should be handled in the calling module | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the S3 bucket | `map(string)` | `{}` | no |
 | <a name="input_versioning_status"></a> [versioning\_status](#input\_versioning\_status) | Versioning state of the bucket: 'Enabled', 'Suspended' (only valid on existing buckets that previously had versioning enabled), or 'Disabled' | `string` | `"Enabled"` | no |
 
