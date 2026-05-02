@@ -163,3 +163,7 @@ Once the module has been created locally and tested, we can run
 git commit -m "<relevant-commit-message>"
 git push origin HEAD  # to push to remote
 ```
+
+**Important**: do not manually run `terraform-docs` before committing. 
+It is already executed as part of `pre-commit` in step 8. 
+Just stage whatever files `pre-commit` modified and commit.
