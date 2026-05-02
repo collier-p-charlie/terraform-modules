@@ -12,7 +12,12 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
-## [1.4.0]() 2026-05-02
+## [1.5.0](https://github.com/collier-p-charlie/terraform-modules/compare/1.4.0...1.5.0) 2026-05-02
+
+### Changed
+- AWS SNS module: added optional `policy` variable (string) to attach a resource policy via `aws_sns_topic_policy`; policy encoding is handled in the calling module
+
+## 1.4.0 2026-05-02
 
 ### Added
 - AWS SNS module (`modules/aws/sns`) for creating an SNS topic with optional FIFO support; the `.fifo` suffix is appended to the topic name automatically when enabled
@@ -22,12 +27,12 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 ### Changed
 - AWS S3 module: added optional `policy` variable (string) to attach a resource-based bucket policy via `aws_s3_bucket_policy`; policy encoding is handled in the calling module
 
-## [1.2.1]() 2026-05-02
+## 1.2.1 2026-05-02
 
 ### Fixed
 - Upgraded `actions/checkout` from `v4` to `v6` across all GitHub Actions workflows
 
-## [1.2.0]() 2026-05-02
+## 1.2.0 2026-05-02
 
 ### Added
 - AWS Secrets Manager module (`modules/aws/secretsmanager`) for creating a secret with configurable recovery window
@@ -37,11 +42,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 ### Fixed
 - AWS S3 module: replaced `versioning_enabled` (bool) with `versioning_status` (string enum: `Enabled`, `Suspended`, `Disabled`); `Disabled` skips the versioning resource entirely, preventing invalid `Suspended` state on bucket creation; default changed to `Enabled`
 
-## [1.1.0]() 2026-05-02
+## 1.1.0 2026-05-02
 
 ### Added
 - AWS S3 module (`modules/aws/s3`) for creating an S3 bucket with optional versioning, force-destroy support, and tag propagation
 
-## [1.0.0]()
+## 1.0.0
 
 - Start of changelog.

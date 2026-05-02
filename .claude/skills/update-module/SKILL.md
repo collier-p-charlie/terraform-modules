@@ -54,9 +54,7 @@ To run `pre-commit` we execute
 
 ```bash
 git add <path-to-module>
-cd <path-to-module>  # to terraform init correctly
-terraform init
-cd <project-root>
+terraform -chdir=<path-to-module> init  # to terraform init correctly
 pre-commit run --files <path-to-module>/*
 ```
 
@@ -66,8 +64,6 @@ For **terraform** we check formatting (and fix it), validate the terraform and a
 Before running the `pre-commit` we need to `terraform init` otherwise the `terraform_validate` will break.
 If some files are fixed (e.g. `README` gets updated), the `pre-commit` will say it failed.
 So we need to run the `pre-commit` command again to see **Passed**.
-
-After all `pre-commit` runs have **Passed**, delete the `.terraform` directory and `.terraform.lock.hcl` — do this as the very last step before committing, as `pre-commit` recreates them via `terraform init` during `terraform_validate`.
 
 ### 4. Updating CHANGELOG and VERSION
 
@@ -101,6 +97,7 @@ git show <previous-module-tag>:pyproject.toml | grep -E ^version
 ```
 
 This will output `version = "<tag1>"` with the tag we want.
+We only put the link on _updates_, as there is no `git diff` to show.
 
 ### 5. Pushing Code
 

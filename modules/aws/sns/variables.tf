@@ -25,6 +25,12 @@ variable "content_based_deduplication" {
   default     = false
 }
 
+variable "policy" {
+  type        = string
+  description = "JSON-encoded resource policy to attach to the SNS topic. Policy encoding should be handled in the calling module"
+  default     = null
+}
+
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to the SNS topic"
