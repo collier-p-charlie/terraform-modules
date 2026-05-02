@@ -58,6 +58,7 @@ terraform -chdir=<path-to-module> init  # to terraform init correctly
 pre-commit run --files <path-to-module>/*
 ```
 
+`git add` is only needed for new untracked files — already-tracked files (e.g. `CHANGELOG.md`, `pyproject.toml`) do not need staging before `pre-commit` as `--all-files` covers them regardless.
 If other files are changed outside of this module path, we should instead use the `--all-files` flag to run `pre-commit` on all files.
 The `pre-commit` checks include basic repository-level checks like from https://github.com/pre-commit/pre-commit-hooks.
 For **terraform** we check formatting (and fix it), validate the terraform and also update the docs using `terraform-docs` (all from here https://github.com/antonbabenko/pre-commit-terraform).
