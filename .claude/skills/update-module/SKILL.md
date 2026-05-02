@@ -65,6 +65,8 @@ Before running the `pre-commit` we need to `terraform init` otherwise the `terra
 If some files are fixed (e.g. `README` gets updated), the `pre-commit` will say it failed.
 So we need to run the `pre-commit` command again to see **Passed**.
 
+After success, delete the `.terraform` directory and `.terraform.lock.hcl`.
+
 ### 4. Updating CHANGELOG and VERSION
 
 The `CHANGELOG.md` should be updated to describe the changes with a new record.
