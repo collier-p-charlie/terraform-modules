@@ -20,16 +20,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get tag
-        id: get-tag
-        run: |
-          # GITHUB_HEAD_REF is the name of the branch that merged
-          TAG="${GITHUB_HEAD_REF#*/}"
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-
       - name: Create tag
         run: |
+          echo "Git config for bot"
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          TAG=${{ steps.get-tag.outputs.tag }}
-          .github/scripts/create-tag.sh "$TAG"
+          
+          echo "Get module tag; GITHUB_HEAD_REF is the name of the branch that merged"
+          MODULE_TAG="${GITHUB_HEAD_REF#*/}"
+          
+          echo "Get repository tag"
+          REPO_TAG=$(grep ^version pyproject.toml | sed -r 's/^version = "(.*)"(.*)/\1/g')
+          
+          echo "Creating tags"
+          .github/scripts/create-tag.sh "$MODULE_TAG" "$REPO_TAG"
