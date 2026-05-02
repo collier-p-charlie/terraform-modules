@@ -12,6 +12,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.4.0]() 2026-05-02
+
+### Added
+- AWS SNS module (`modules/aws/sns`) for creating an SNS topic with optional FIFO support; the `.fifo` suffix is appended to the topic name automatically when enabled
+
 ## [1.3.0](https://github.com/collier-p-charlie/terraform-modules/compare/1.1.1...1.3.0) 2026-05-02
 
 ### Changed
