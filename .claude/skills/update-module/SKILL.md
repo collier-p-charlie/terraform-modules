@@ -92,7 +92,7 @@ The repository domain can be found in `pyproject.toml` under `[project.urls]`.
 We know `tag2` as this is the new repository version, but `tag1` is the repository version relating to the `aws-s3.v1.0.0` changes, in this example.
 To find the repository tag we can use:
 
-```bash 
+```bash
 git show <previous-module-tag>:pyproject.toml | grep -E ^version
 ```
 

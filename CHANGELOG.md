@@ -12,6 +12,11 @@ That is, given a version number `MAJOR.MINOR.PATCH`, increment the:
 - **PATCH** version when you make backwards compatible bug fixes
 
 
+## [1.2.0]() 2026-05-02
+
+### Added
+- AWS Secrets Manager module (`modules/aws/secretsmanager`) for creating a secret with configurable recovery window
+
 ## [1.1.1](https://github.com/collier-p-charlie/terraform-modules/compare/1.1.0...1.1.1) 2026-05-02
 
 ### Fixed
