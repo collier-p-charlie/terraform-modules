@@ -13,10 +13,15 @@ variable "bucket_name" {
   }
 }
 
-variable "versioning_enabled" {
-  type        = bool
-  description = "Whether to enable versioning on the S3 bucket"
-  default     = false
+variable "versioning_status" {
+  type        = string
+  description = "Versioning state of the bucket: 'Enabled', 'Suspended' (only valid on existing buckets that previously had versioning enabled), or 'Disabled'"
+  default     = "Enabled"
+
+  validation {
+    condition     = contains(["Enabled", "Suspended", "Disabled"], var.versioning_status)
+    error_message = "versioning_status must be one of: Enabled, Suspended, Disabled"
+  }
 }
 
 variable "force_destroy" {
